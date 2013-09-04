@@ -54,12 +54,12 @@
 			{
 				var segements = window.location.pathname.split('/');
 				var last_segment = segements.pop();
-				if( '.html' === last_segment.substring(last_segment.length-5) )
+				if( last_segment === '' || '.html' === last_segment.substring(last_segment.length-5) )
 				{
 					segements.pop();
 				}
-				segements.push(search.slides);
-				segements.push('slides.html');
+				segements.push("slides_content");
+				segements.push(search.slides + '.html');
 				var slides_url = window.location.protocol + "//" + window.location.host + "/" + segements.join("/");
 			}
 			
