@@ -10,29 +10,29 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-	<link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+	<link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
 
 	<!-- For syntax highlighting -->
-	<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
 
 	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 	<script>
-		document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 	</script>
 
 	<!--[if lt IE 9]>
-	<script src="reveal.js/lib/js/html5shiv.js"></script>
+	<script src="../reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
 </head>
 <body>
 
 	<div id="reveal" class="reveal"></div>
 
-	<script type="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js">\x3C/script>')</script>
-	<script src="reveal.js/lib/js/head.min.js"></script>
-	<script src="reveal.js/js/reveal.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../js/jquery-1.10.2.min.js">\x3C/script>')</script>
+	<script src="../reveal.js/lib/js/head.min.js"></script>
+	<script src="../reveal.js/js/reveal.min.js"></script>
 
 	<script>
 		$(document).ready(function(){
@@ -62,10 +62,12 @@
 				segements.push(search.slides + '.html');
 				var slides_url = window.location.protocol + "//" + window.location.host + "/" + segements.join("/");
 			}
-			
-			$(document.getElementById('reveal')).load(slides_url, initialize_reveal);
+			if( slides_url !== "" ){
+				$(document.getElementById('reveal')).load(slides_url, initialize_reveal);
+			}
 
 			function initialize_reveal(){
+				console.log(arguments);
 				// Full list of configuration options available here:
 				// https://github.com/hakimel/reveal.js#configuration
 				Reveal.initialize({
